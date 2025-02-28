@@ -1,19 +1,27 @@
+<header>
+    <nav class="navigation">
+        <div class="tab" [class.active]="activeTab === 'home'" (click)="setActiveTab('home')" aria-label="Ir a Inicio">
+            <span>Inicio</span>
+        </div>
+        <div class="tab" [class.active]="activeTab === 'resources'" (click)="setActiveTab('resources')" aria-label="Ir a Recursos">
+            <span>Recursos</span>
+        </div>
+        <div class="tab" [class.active]="activeTab === 'report'" (click)="setActiveTab('report')" aria-label="Ir a Reportar">
+            <span>Reportar</span>
+        </div>
+        <div class="tab" [class.active]="activeTab === 'parents'" (click)="setActiveTab('parents')" aria-label="Ir a Para Padres">
+            <span>Para Padres</span>
+        </div>
+    </nav>
+</header>
 <div class="safe-space-container">
-
+    
+    
     <header class="header">
         <h1>Espacio Seguro</h1>
         <p class="tagline">Un lugar donde puedes aprender, compartir y sentirte segura</p>
         <!-- Botones de Navegación -->
-        <nav class="navigation">
-            <button [class.active]="activeTab === 'home'" (click)="setActiveTab('home')"
-                aria-label="Ir a Inicio">Inicio</button>
-            <button [class.active]="activeTab === 'resources'" (click)="setActiveTab('resources')"
-                aria-label="Ir a Recursos">Recursos</button>
-            <button [class.active]="activeTab === 'report'" (click)="setActiveTab('report')"
-                aria-label="Ir a Reportar">Reportar</button>
-            <button [class.active]="activeTab === 'parents'" (click)="setActiveTab('parents')"
-                aria-label="Ir a Para Padres">Para Padres</button>
-        </nav>
+        
 
     </header>
 
