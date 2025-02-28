@@ -68,7 +68,9 @@ body {
 .tab span {
     font-size: 1rem;
     color: #333;
+    user-select: none;  /* Evitar que el texto sea seleccionable */
 }
+
 
 .tab:hover {
     background-color: #2492ad;
