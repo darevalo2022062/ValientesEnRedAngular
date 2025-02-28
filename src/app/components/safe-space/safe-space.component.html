@@ -1,0 +1,142 @@
+<div class="safe-space-container">
+
+    <header class="header">
+        <h1>Espacio Seguro</h1>
+        <p class="tagline">Un lugar donde puedes aprender, compartir y sentirte segura</p>
+        <!-- Botones de Navegación -->
+        <nav class="navigation">
+            <button [class.active]="activeTab === 'home'" (click)="setActiveTab('home')"
+                aria-label="Ir a Inicio">Inicio</button>
+            <button [class.active]="activeTab === 'resources'" (click)="setActiveTab('resources')"
+                aria-label="Ir a Recursos">Recursos</button>
+            <button [class.active]="activeTab === 'report'" (click)="setActiveTab('report')"
+                aria-label="Ir a Reportar">Reportar</button>
+            <button [class.active]="activeTab === 'parents'" (click)="setActiveTab('parents')"
+                aria-label="Ir a Para Padres">Para Padres</button>
+        </nav>
+
+    </header>
+
+    <main class="content">
+        <!-- Home Tab -->
+        <section *ngIf="activeTab === 'home'" class="home-section">
+            <div class="welcome-card">
+                <div class="card-icon">
+                    <i class="icon-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h2>¡Bienvenida a tu espacio seguro!</h2>
+                    <p>Aquí encontrarás herramientas y consejos para navegar por internet de forma segura y divertida.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>Consejos de seguridad</h3>
+                <ul class="tips-list">
+                    <li *ngFor="let tip of safetyTips" class="tip-item">
+                        <div class="tip-icon">✓</div>
+                        <div class="tip-text">{{ tip }}</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="interactive-prompt">
+                <h3>¿Cómo te sientes hoy?</h3>
+                <div class="mood-buttons">
+                    <button class="mood-button happy">😊 Feliz</button>
+                    <button class="mood-button okay">😐 Bien</button>
+                    <button class="mood-button sad">😔 Triste</button>
+                    <button class="mood-button worried">😟 Preocupada</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Tab -->
+        <section *ngIf="activeTab === 'resources'" class="resources-section">
+            <h2>Recursos Educativos</h2>
+            <p class="section-intro">Explora estos recursos para aprender más sobre seguridad en línea:</p>
+
+            <div class="resources-grid">
+                <div *ngFor="let resource of resources" class="resource-card">
+                    <div class="resource-icon">
+                        <i [class]="'icon-' + resource.icon"></i>
+                    </div>
+                    <h3>{{ resource.title }}</h3>
+                    <p>{{ resource.description }}</p>
+                    <button class="resource-button">Explorar</button>
+                </div>
+            </div>
+
+            <div class="support-section">
+                <h3>Comunidad de Apoyo</h3>
+                <p>Recuerda que no estás sola. Hay muchas personas que quieren ayudarte a sentirte segura y feliz en
+                    línea.</p>
+                <button class="support-button">Unirse a la comunidad</button>
+            </div>
+        </section>
+
+        <!-- Report Tab -->
+        <section *ngIf="activeTab === 'report'" class="report-section">
+            <h2>Reportar un Incidente</h2>
+            <p class="section-intro">Si has experimentado o visto algo que te hizo sentir incómoda, puedes reportarlo
+                aquí de forma anónima.</p>
+
+            <div class="report-form">
+                <div class="form-group">
+                    <label for="reportMessage">¿Qué sucedió? (No necesitas incluir nombres si no quieres)</label>
+                    <textarea id="reportMessage" [(ngModel)]="reportMessage" rows="5"
+                        placeholder="Cuéntanos lo que pasó...">
+            </textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button class="submit-button" (click)="submitReport()" [disabled]="!reportMessage">Enviar
+                        Reporte</button>
+                </div>
+
+                <div *ngIf="showReportSuccess" class="success-message">
+                    ¡Gracias por tu reporte! Un adulto de confianza lo revisará pronto.
+                </div>
+            </div>
+
+            <div class="help-info">
+                <h3>¿Necesitas ayuda inmediata?</h3>
+                <p>Si estás en una situación urgente, habla con un adulto de confianza o llama a la línea de ayuda:
+                    <strong>800-123-4567</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Parents Tab -->
+        <section *ngIf="activeTab === 'parents'" class="parents-section">
+            <h2>Información para Padres y Educadores</h2>
+            <p class="section-intro">Recursos para ayudar a los adultos a guiar y proteger a las niñas en el mundo
+                digital.</p>
+
+            <div class="parent-resources">
+                <div *ngFor="let resource of parentResources" class="parent-resource-card">
+                    <h3>{{ resource.title }}</h3>
+                    <p>{{ resource.description }}</p>
+                    <button class="resource-button">Leer más</button>
+                </div>
+            </div>
+
+            <div class="workshop-info">
+                <h3>Talleres y Capacitaciones</h3>
+                <p>Ofrecemos talleres virtuales y presenciales sobre seguridad digital para padres, maestros y
+                    comunidades educativas.</p>
+                <button class="workshop-button">Ver calendario</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Espacio Seguro | Un proyecto para proteger y empoderar a las niñas en línea</p>
+        <div class="footer-links">
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Contacto</a>
+            <a href="#">Política de privacidad</a>
+        </div>
+    </footer>
+</div>
